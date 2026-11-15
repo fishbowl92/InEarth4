@@ -48,11 +48,11 @@ public class GameManager : MonoBehaviour
     public List<skillData> allSkillData;
     public List<skillData> playerHaveSkill;
 
-    // ¿ÀºêÁ§Æ® Ç®¸µ¿ë ¸®½ºÆ®
+    // ì˜¤ë¸Œì íŠ¸ í’€ë§ìš© ë¦¬ìŠ¤íŠ¸
     private List<GameObject> linesOfPatern = new List<GameObject>();
 
-    // ½ºÅ³ Á¤º¸ UI Ç¥½Ã¿ë
-    public GameObject[] skillInfos; // ½ºÅ³ Á¤º¸ ´ã´Â°÷
+    // ìŠ¤í‚¬ ì •ë³´ UI í‘œì‹œìš©
+    public GameObject[] skillInfos; // ìŠ¤í‚¬ ì •ë³´ ë‹´ëŠ”ê³³
     public GameObject linePrefab;
 
     public List<Color> lineColor;
@@ -69,31 +69,31 @@ public class GameManager : MonoBehaviour
         switch (lev)
         {
             default:
-                return "¸ğÇèÀÇ ½ÃÀÛ";
+                return "ëª¨í—˜ì˜ ì‹œì‘";
             case 1:
-                return "°­ÀûÀÌ ´õ ¸¹Àº Ã¼·ÂÀ» ¾ò½À´Ï´Ù";
+                return "ê°•ì ì´ ë” ë§ì€ ì²´ë ¥ì„ ì–»ìŠµë‹ˆë‹¤";
             case 2:
-                return "¹«¸®ÀÇ ÀûÀÌ ´õ ¸¹Àº Ã¼·ÂÀ» ¾ò½À´Ï´Ù";
+                return "ë¬´ë¦¬ì˜ ì ì´ ë” ë§ì€ ì²´ë ¥ì„ ì–»ìŠµë‹ˆë‹¤";
             case 3:
-                return "´ëÀåÀÌ ´õ ¸¹Àº Ã¼·ÂÀ» ¾ò½À´Ï´Ù";
+                return "ëŒ€ì¥ì´ ë” ë§ì€ ì²´ë ¥ì„ ì–»ìŠµë‹ˆë‹¤";
             case 4:
-                return "½ÃÀÛ½Ã È¸ÇÇ½ºÅØÀÌ ¾ø½À´Ï´Ù";
+                return "ì‹œì‘ì‹œ íšŒí”¼ìŠ¤í…ì´ ì—†ìŠµë‹ˆë‹¤";
             case 5:
-                return "È¸ÇÇ ÄğÅ¸ÀÓÀÌ Áõ°¡ÇÕ´Ï´Ù";
+                return "íšŒí”¼ ì¿¨íƒ€ì„ì´ ì¦ê°€í•©ë‹ˆë‹¤";
             case 6:
-                return "¹«¸®ÀÇ Àû¼ö°¡ Áõ°¡ÇÕ´Ï´Ù";
+                return "ë¬´ë¦¬ì˜ ì ìˆ˜ê°€ ì¦ê°€í•©ë‹ˆë‹¤";
             case 7:
-                return "°­ÀûÀÌ °æÁ÷À» ¹«½ÃÇÕ´Ï´Ù";
+                return "ê°•ì ì´ ê²½ì§ì„ ë¬´ì‹œí•©ë‹ˆë‹¤";
             case 8:
-                return "´ëÀåÀÇ °­ÀÎÇÔÀÌ Áõ°¡ÇÕ´Ï´Ù";
+                return "ëŒ€ì¥ì˜ ê°•ì¸í•¨ì´ ì¦ê°€í•©ë‹ˆë‹¤";
             case 9:
-                return "¹«¸®ÀÇ ¼Óµµ°¡ Áõ°¡ÇÕ´Ï´Ù";
+                return "ë¬´ë¦¬ì˜ ì†ë„ê°€ ì¦ê°€í•©ë‹ˆë‹¤";
             case 10:
-                return "´ëÀåÀÌ »õ·Î¿î ÆĞÅÏÀ» °¡Áı´Ï´Ù";
+                return "ëŒ€ì¥ì´ ìƒˆë¡œìš´ íŒ¨í„´ì„ ê°€ì§‘ë‹ˆë‹¤";
             case 11:
-                return "È¸ÇÇÀÇ ÆÇÁ¤ÀÌ Âª¾ÆÁı´Ï´Ù";
+                return "íšŒí”¼ì˜ íŒì •ì´ ì§§ì•„ì§‘ë‹ˆë‹¤";
             case 12:
-                return "°ÔÀÓ¼Óµµ°¡ Áõ°¡ÇÕ´Ï´Ù";
+                return "ê²Œì„ì†ë„ê°€ ì¦ê°€í•©ë‹ˆë‹¤";
         }
     }
     public bool checkStage(string s)
@@ -141,7 +141,7 @@ public class GameManager : MonoBehaviour
     }
     public void createLineOnPatternPanel(GameObject patternPanel, int id, int nextId)
     {
-        // ½ÃÀÛÁ¡ ±×¸®±â
+        // ì‹œì‘ì  ê·¸ë¦¬ê¸°
         GameObject line = null;
         foreach (var lineT in linesOfPatern)
         {
@@ -161,7 +161,7 @@ public class GameManager : MonoBehaviour
         line.GetComponent<Image>().color = Color.black;
         line.transform.localPosition = pos;
 
-        // ¶óÀÎ ¿Ï¼º
+        // ë¼ì¸ ì™„ì„±
         Vector3 nextPos = setPoint(nextId);
         RectTransform lineRcTs = line.GetComponent<RectTransform>();
 
@@ -215,7 +215,7 @@ public class GameManager : MonoBehaviour
 
     public List<ItemData> allItemData;
 
-    // 0 : ¹«±â, 1 ~ 3 : etc
+    // 0 : ë¬´ê¸°, 1 ~ 3 : etc
     public List<ItemData> playerEquipment;
     public List<ItemData> inventory;
 

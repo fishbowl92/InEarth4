@@ -132,13 +132,13 @@ public class PlayManager : MonoBehaviour
         int score = 500 * gm.stageNum + 5 * criCount + 50 * overKill
             + 10 * evasionSuccessCount + 50 * perfactGuardCount - 2 * hitCount;
         string sTemp =
-              "³­ÀÌµµ Á¡¼ö :  500 x" + (die ? 0 : gm.stageNum) +
-            "\nÄ¡¸íÅ¸ Á¡¼ö :    5 x" + criCount +
-            "\n¿À¹ö   Å³   :   50 x" + overKill +
-            "\nÈ¸ÇÇ   Á¡¼ö :   10 x" + evasionSuccessCount +
-            "\nÆÛÆåÆ® °¡µå :   50 x" + perfactGuardCount +
-            "\nÇÇ°İ   ¼ö   :   -2 x" + hitCount +
-            "\nÃß°¡   º¸»ó : " + score  + " / 1000 = "+ score/1000;
+              "ë‚œì´ë„ ì ìˆ˜ :  500 x" + (die ? 0 : gm.stageNum) +
+            "\nì¹˜ëª…íƒ€ ì ìˆ˜ :    5 x" + criCount +
+            "\nì˜¤ë²„   í‚¬   :   50 x" + overKill +
+            "\níšŒí”¼   ì ìˆ˜ :   10 x" + evasionSuccessCount +
+            "\ní¼í™íŠ¸ ê°€ë“œ :   50 x" + perfactGuardCount +
+            "\ní”¼ê²©   ìˆ˜   :   -2 x" + hitCount +
+            "\nì¶”ê°€   ë³´ìƒ : " + score  + " / 1000 = "+ score/1000;
         TextMeshProUGUI text = gameEnd.transform.GetChild(1).GetChild(0).GetChild(2).GetComponent<TextMeshProUGUI>();
         text.text = "";
 
@@ -160,22 +160,22 @@ public class PlayManager : MonoBehaviour
             switch (i)
             {
                 case 0:
-                    //¹«Á¶°Ç µ·
+                    //ë¬´ì¡°ê±´ ëˆ
                     t.GetChild(1).GetComponent<TextMeshProUGUI>().text = "x" + gm.myGold;
                     continue;
                 case 1:
-                    //¹«Á¶°Ç ½ºÅ³
+                    //ë¬´ì¡°ê±´ ìŠ¤í‚¬
                     gab = Random.Range(1, gm.allSkillData.Count);
                     break;
                 default:
                     if(Random.Range(0, 5) == 0)
                     {
-                        //½ºÅ³
+                        //ìŠ¤í‚¬
                         gab = Random.Range(1, gm.allSkillData.Count);
                     }
                     else
                     {
-                        //Àåºñ
+                        //ì¥ë¹„
                         gab = Random.Range(0, gm.allItemData.Count);
                         gab = -gab - 1;
                     }
@@ -256,23 +256,23 @@ public class PlayManager : MonoBehaviour
         myCamera.position = cemPoint;
         if (Input.GetKeyUp(KeyCode.J))
         {
-            //A¹öÆ° Å×½ºÆ®
+            //Aë²„íŠ¼ í…ŒìŠ¤íŠ¸
             player.GetAButton();
         }
         EvasionCoolTimeCheck();
         if (Input.GetKeyUp(KeyCode.K))
         {
-            //B¹öÆ° Å×½ºÆ®
+            //Bë²„íŠ¼ í…ŒìŠ¤íŠ¸
             player.GetBButton();
         }
         if (Input.GetKeyUp(KeyCode.H))
         {
-            //¸÷»ı¼º Å×½ºÆ®
+            //ëª¹ìƒì„± í…ŒìŠ¤íŠ¸
             instantsEnemy(1);
         }
         if (Input.GetKeyUp(KeyCode.G))
         {
-            //¸÷»ı¼º Å×½ºÆ®
+            //ëª¹ìƒì„± í…ŒìŠ¤íŠ¸
             gm.changeWeapon(gm.textWeapon[testNum]);
             testNum = testNum + 1;
             testNum %= 4;
@@ -351,7 +351,7 @@ public class PlayManager : MonoBehaviour
             }
         }
 
-        // ¶óÀÎ ±×¸®±â ¼öÁ¤
+        // ë¼ì¸ ê·¸ë¦¬ê¸° ìˆ˜ì •
         if (unlocking)
         {
             Vector3 mousePos = canvas.transform.InverseTransformPoint(Input.mousePosition);
@@ -481,7 +481,7 @@ public class PlayManager : MonoBehaviour
             int gab = Random.Range(0, 44) * 5 + 15;
             if (spd.Find(item => item.point == gab).point > 0)
             {
-                //ÀÌ¹Ì ÀÖÀ½
+                //ì´ë¯¸ ìˆìŒ
                 continue;
             }
             else
@@ -568,7 +568,7 @@ public class PlayManager : MonoBehaviour
                 e.transform.position = player.transform.localPosition + new Vector3(18, -2.5f);
                 e.settingEnemy(gm.nomalMob[gm.seed[t]], t);
                 Enemys.Add(e);
-                startTextBox(e.transform, "¾È³ç?\n³ª´Â ÀûÀÌ¾ß!");
+                startTextBox(e.transform, "ì•ˆë…•?\në‚˜ëŠ” ì ì´ì•¼!");
             }
         }
     }
@@ -597,7 +597,7 @@ public class PlayManager : MonoBehaviour
     {
         if (buffPenal.gameObject.activeSelf)
         {
-            //ÀÌ¹Ì ¿­·ÁÀÖÀ¸¸é
+            //ì´ë¯¸ ì—´ë ¤ìˆìœ¼ë©´
             bookAnim.SetTrigger("Close");
             buffPenal.gameObject.SetActive(false);
             Time.timeScale = gm.checkStage("gameSpeed")? 1.2f: 1;
@@ -641,7 +641,7 @@ public class PlayManager : MonoBehaviour
         pageNum.text = (nowPage + 1) + "/" + maxPage;
         pageFlip.SetTrigger((a < 0) ? "Right" : "Left");
 
-        // ÆäÀÌÁö ³Ñ¾î°¡°í ÇØ´ç ÆäÀÌÁö¿¡ ³ªÅ¸³¯ ¸ğµç Á¤º¸µé
+        // í˜ì´ì§€ ë„˜ì–´ê°€ê³  í•´ë‹¹ í˜ì´ì§€ì— ë‚˜íƒ€ë‚  ëª¨ë“  ì •ë³´ë“¤
         if (a < 0)
         {
             for (int j = 0; j < 3; ++j)
@@ -649,7 +649,7 @@ public class PlayManager : MonoBehaviour
                 skillInfos[j].SetActive(true);
             }
         }
-        initSkillinfo(); // ÆĞÅÏ ¶óÀÎ ±×¸®±â
+        initSkillinfo(); // íŒ¨í„´ ë¼ì¸ ê·¸ë¦¬ê¸°
     }
 
 
@@ -768,18 +768,18 @@ public class PlayManager : MonoBehaviour
         t.gameObject.SetActive(false);
     }
 
-    /* < ¹öÇÁ >
-     * 1. »óÅÂ¿¡ °ü¿©ÇÏ´Â ¹öÇÁ(ex. Ã¼·Â, ¸¶³ª...)´Â 1)Àû¿ë, 2)ÇØÁ¦, 3)°»½Å ½Ã¿¡¸¸ °ü·Ã »óÅÂ¿¡ ´ëÇÏ¿© ¾÷µ¥ÀÌÆ®ÇÑ´Ù.
-     * 2. °ø°İ½Ã ¹ßµ¿ or ÇÇÇØ or È¸ÇÇ °ü·Ã ¹öÇÁ´Â ÇØ´ç µ¿ÀÛ ½ÇÇà½Ã °è»êµÈ °ªÀ» ÇÑ¹ø¿¡ ³Ñ°ÜÁà¼­ »ç¿ëÀÌ ¿ëÀÌÇÏ°Ô ¼³°èÇÑ´Ù.
+    /* < ë²„í”„ >
+     * 1. ìƒíƒœì— ê´€ì—¬í•˜ëŠ” ë²„í”„(ex. ì²´ë ¥, ë§ˆë‚˜...)ëŠ” 1)ì ìš©, 2)í•´ì œ, 3)ê°±ì‹  ì‹œì—ë§Œ ê´€ë ¨ ìƒíƒœì— ëŒ€í•˜ì—¬ ì—…ë°ì´íŠ¸í•œë‹¤.
+     * 2. ê³µê²©ì‹œ ë°œë™ or í”¼í•´ or íšŒí”¼ ê´€ë ¨ ë²„í”„ëŠ” í•´ë‹¹ ë™ì‘ ì‹¤í–‰ì‹œ ê³„ì‚°ëœ ê°’ì„ í•œë²ˆì— ë„˜ê²¨ì¤˜ì„œ ì‚¬ìš©ì´ ìš©ì´í•˜ê²Œ ì„¤ê³„í•œë‹¤.
      */
     public class BuffInfo
     {
-        public string buffCode;     // DJ - ¹öÇÁ ´ëÁ¶¿ë (ÀÌ¹Ì ÀÖ´Â ¹öÇÁ¶ó¸é °ª °»½Å¿ë)
-        public float time;          // ¹öÇÁ Áö¼Ó½Ã°£
-        public skillData val;             // ¹öÇÁ ¼öÄ¡
+        public string buffCode;     // DJ - ë²„í”„ ëŒ€ì¡°ìš© (ì´ë¯¸ ìˆëŠ” ë²„í”„ë¼ë©´ ê°’ ê°±ì‹ ìš©)
+        public float time;          // ë²„í”„ ì§€ì†ì‹œê°„
+        public skillData val;             // ë²„í”„ ìˆ˜ì¹˜
         public Transform myUI;
     }
-    public List<BuffInfo> buffList = new List<BuffInfo>(); //start ¿¡¼­ ÃÊ±âÈ­ ÇÏÀÚ  //0 ÇÃ·¹ÀÌ¾î 1 Àû
+    public List<BuffInfo> buffList = new List<BuffInfo>(); //start ì—ì„œ ì´ˆê¸°í™” í•˜ì  //0 í”Œë ˆì´ì–´ 1 ì 
     public Transform[] buffStatePenal;
     public Transform buffUIsetting()
     {
@@ -839,7 +839,7 @@ public class PlayManager : MonoBehaviour
     }
 
 
-    private List<int> visitedNode = new List<int>();    // ÆĞÅÏ ±â·Ï
+    private List<int> visitedNode = new List<int>();    // íŒ¨í„´ ê¸°ë¡
     public List<LockNode> circles;
 
     public GameObject linePrefab;
@@ -852,19 +852,19 @@ public class PlayManager : MonoBehaviour
 
     private GameObject lineOnEdit;
     private RectTransform lineOnEditRcTs;
-    private LockNode nodeOnEdit;  // ¾î´À ³ëµå¿¡¼­ ¼±ÀÌ ÀÌ¾îÁö°íÀÖ´ÂÁö Ã¼Å©¿ë
+    private LockNode nodeOnEdit;  // ì–´ëŠ ë…¸ë“œì—ì„œ ì„ ì´ ì´ì–´ì§€ê³ ìˆëŠ”ì§€ ì²´í¬ìš©
 
-    // ¿ÀºêÁ§Æ® Ç®¸µ¿ë ¸®½ºÆ®
+    // ì˜¤ë¸Œì íŠ¸ í’€ë§ìš© ë¦¬ìŠ¤íŠ¸
     private List<GameObject> linesOfPatern = new List<GameObject>();
 
-    // ½ºÅ³ Á¤º¸ UI Ç¥½Ã¿ë
-    public GameObject[] patternPanels = new GameObject[3];  // ½ºÅ³ ÆĞÅÏ
-    public GameObject[] skillInfos; // ½ºÅ³ Á¤º¸ ´ã´Â°÷
+    // ìŠ¤í‚¬ ì •ë³´ UI í‘œì‹œìš©
+    public GameObject[] patternPanels = new GameObject[3];  // ìŠ¤í‚¬ íŒ¨í„´
+    public GameObject[] skillInfos; // ìŠ¤í‚¬ ì •ë³´ ë‹´ëŠ”ê³³
 
-    // ÀÓ½Ã ½ºÅ³ º¸¿©ÁÖ±â¿ë
+    // ì„ì‹œ ìŠ¤í‚¬ ë³´ì—¬ì£¼ê¸°ìš©
     public int checkSkillIndex;
 
-    #region ½ºÅ³ Á¤º¸/ÆĞÅÏ º¸¿©ÁÖ±â
+    #region ìŠ¤í‚¬ ì •ë³´/íŒ¨í„´ ë³´ì—¬ì£¼ê¸°
     public void initSkillinfo()
     {
         int cnt = -1;
@@ -880,9 +880,9 @@ public class PlayManager : MonoBehaviour
                 }
                 break;
             }
-            // ½ºÅ³ ÆĞÅÏ ±×¸®±â
+            // ìŠ¤í‚¬ íŒ¨í„´ ê·¸ë¦¬ê¸°
             drawSkillPattern(gm.playerHaveSkill[i].pattern, patternPanels[cnt]);
-            // ½ºÅ³ Á¤º¸ ¼¼ÆÃ
+            // ìŠ¤í‚¬ ì •ë³´ ì„¸íŒ…
             skillInfos[cnt].transform.Find("img").GetComponent<Image>().sprite = gm.playerHaveSkill[i].skillImage;
             skillInfos[cnt].transform.Find("name").GetComponent<TextMeshProUGUI>().text = gm.playerHaveSkill[i].buffName;
             skillInfos[cnt].transform.Find("cost").GetComponent<TextMeshProUGUI>().text = "cost : " + gm.playerHaveSkill[i].cost;
@@ -897,7 +897,7 @@ public class PlayManager : MonoBehaviour
     }
     public void createLineOnPatternPanel(GameObject patternPanel, int id, int nextId, int num)
     {
-        // ½ÃÀÛÁ¡ ±×¸®±â
+        // ì‹œì‘ì  ê·¸ë¦¬ê¸°
         GameObject line = null;
         foreach (var lineT in linesOfPatern)
         {
@@ -917,7 +917,7 @@ public class PlayManager : MonoBehaviour
         line.GetComponent<Image>().color = gm.lineColor[num];
         line.transform.localPosition = pos;
 
-        // ¶óÀÎ ¿Ï¼º
+        // ë¼ì¸ ì™„ì„±
         Vector3 nextPos = setPoint(nextId);
         RectTransform lineRcTs = line.GetComponent<RectTransform>();
 
@@ -969,7 +969,7 @@ public class PlayManager : MonoBehaviour
     }
     #endregion
 
-    #region ÆĞÅÏ ±×¸®±â
+    #region íŒ¨í„´ ê·¸ë¦¬ê¸°
     public List<skillData> buffData = new List<skillData>();
     public SpriteRenderer buffEffect;
     public struct buffArg
@@ -1015,7 +1015,7 @@ public class PlayManager : MonoBehaviour
     {
         if (unlocking)
         {
-            #region ¿¹¿ÜÃ³¸®
+            #region ì˜ˆì™¸ì²˜ë¦¬
             if (ln.id == 0)
             {
                 if(checkVisit == 2)
@@ -1149,22 +1149,22 @@ public class PlayManager : MonoBehaviour
 
         if(sd == null)
         {
-            //Àß¸øµÈ ÆĞÅÏ
+            //ì˜ëª»ëœ íŒ¨í„´
         }
         else
         {
             if (buffData.Contains(sd))
             {
-                //ÀÌ¹Ì ´ë±â¿­¿¡ ÀÖÀ½
+                //ì´ë¯¸ ëŒ€ê¸°ì—´ì— ìˆìŒ
             }
             else if (useManaCost(sd.cost))
             {
-                //ÄÚ½ºÆ® »ç¿ë
+                //ì½”ìŠ¤íŠ¸ ì‚¬ìš©
                 buffData.Add(sd);
             }
             else
             {
-                //ÄÚ½ºÆ® ºÎÁ·
+                //ì½”ìŠ¤íŠ¸ ë¶€ì¡±
             }
         }
 

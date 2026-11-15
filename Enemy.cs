@@ -100,7 +100,7 @@ public class Enemy : MonoBehaviour
         if (!superArmor && !sua)
         {
             anim.SetTrigger("Knock");
-            //°æÁ÷ ¿¡´Ï¸ŞÀÌ¼Ç 0.25
+            //ê²½ì§ ì—ë‹ˆë©”ì´ì…˜ 0.25
             startKnockBack(pm.player.knockBack());
         }
     }
@@ -111,7 +111,7 @@ public class Enemy : MonoBehaviour
     }
     IEnumerator knockBack(float gab)
     {
-        //0.2ÃÊ°£ ¹ĞÀÚ
+        //0.2ì´ˆê°„ ë°€ì
         float timer = 0;
         Vector3 go = Vector3.right * gab / 0.2f; 
         while(timer <= 0.2f)
@@ -127,7 +127,7 @@ public class Enemy : MonoBehaviour
         public int dmg;
         public float moveDelay;
         public float coolTime;
-        public bool skillKind;//false ÀÌ¸é ÀÏ¹İ
+        public bool skillKind;//false ì´ë©´ ì¼ë°˜
     }
     public int skillcount;
     public void atk()
@@ -172,18 +172,18 @@ public class Enemy : MonoBehaviour
         {
            if(pm.player.EvasionTime < Time.time)
             {
-                //¸ÂÀ½
+                //ë§ìŒ
                 pm.player.Apuda(selectSkill.dmg);
             }
             else
             {
-                //È¸ÇÇ¼º°ø
+                //íšŒí”¼ì„±ê³µ
                 pm.makeGuardFont(false);
             }
         }
         else
         {
-            Debug.Log("»ç°Å¸®¹Û");
+            Debug.Log("ì‚¬ê±°ë¦¬ë°–");
         }
     }
     public void RangeCheckWithDmg(int gub)
@@ -192,18 +192,18 @@ public class Enemy : MonoBehaviour
         {
             if (pm.player.EvasionTime < Time.time)
             {
-                //¸ÂÀ½
+                //ë§ìŒ
                 pm.player.Apuda(Mathf.Max(1, selectSkill.dmg / gub));
             }
             else
             {
-                //È¸ÇÇ¼º°ø
+                //íšŒí”¼ì„±ê³µ
                 pm.makeGuardFont(false);
             }
         }
         else
         {
-            Debug.Log("»ç°Å¸®¹Û");
+            Debug.Log("ì‚¬ê±°ë¦¬ë°–");
         }
     }
     public float stunTime;
@@ -221,7 +221,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            Debug.Log("»ç°Å¸®¹Û");
+            Debug.Log("ì‚¬ê±°ë¦¬ë°–");
         }
     }
 }

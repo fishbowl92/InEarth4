@@ -10,18 +10,18 @@ public class skillData : ScriptableObject
     public int duration;
     public int[] pattern;
 
-    public int level;    // ½ºÅ³ ÇöÀç ·¹º§
-    public int[] needExpForLevUp;   // ½ºÅ³ ·¹º§¾÷´ç ¿ä±¸ °æÇèÄ¡
+    public int level;    // ìŠ¤í‚¬ í˜„ì¬ ë ˆë²¨
+    public int[] needExpForLevUp;   // ìŠ¤í‚¬ ë ˆë²¨ì—…ë‹¹ ìš”êµ¬ ê²½í—˜ì¹˜
 
-    public Vector3Int[] skillVal; //        // x Å¸ÀÔ // 0- ÇÃ·¹ÀÌ¾î ¹öÇÁ 1- ÇÃ·¹ÀÌ¾î°¡ °ø°İ, 2- ÀûÀÌ µğ¹öÇÁ°É¸²
-                                            // y  ½Ã°£ 
-                                            // z ¹İº¹È½¼ö
+    public Vector3Int[] skillVal; //        // x íƒ€ì… // 0- í”Œë ˆì´ì–´ ë²„í”„ 1- í”Œë ˆì´ì–´ê°€ ê³µê²©, 2- ì ì´ ë””ë²„í”„ê±¸ë¦¼
+                                            // y  ì‹œê°„ 
+                                            // z ë°˜ë³µíšŸìˆ˜
     public UnityEvent<arg>[] skillEvent;
     [TextArea(10, 20)]
     public string info;
     public Sprite skillImage;
     public Sprite[] be;
-    [ContextMenu("skillCode¼ÂÆÃ")]
+    [ContextMenu("skillCodeì…‹íŒ…")]
     public void settingSkillCode()
     {
         skillCode = string.Empty;

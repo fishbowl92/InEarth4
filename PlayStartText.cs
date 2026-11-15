@@ -15,20 +15,20 @@ public class PlayStartText : MonoBehaviour
     IEnumerator showText()
     {
         WaitForSeconds ws = new WaitForSeconds(0.03f);
-        string sTemp = (gm.stageNum + 1) + " ´Ü°è : " + gm.levCorrection(gm.stageNum);
+        string sTemp = (gm.stageNum + 1) + " ë‹¨ê³„ : " + gm.levCorrection(gm.stageNum);
 
-        sTemp += "\n\n10°³ÀÇ ¹«¸®¿Í 5¸íÀÇ °­ÀûÀÌ ±æÀ» ¸·½À´Ï´Ù.\n\n";
+        sTemp += "\n\n10ê°œì˜ ë¬´ë¦¬ì™€ 5ëª…ì˜ ê°•ì ì´ ê¸¸ì„ ë§‰ìŠµë‹ˆë‹¤.\n\n";
 
         switch (gm.seed[2])
         {
             case 1:
-                sTemp += "¹¹ ¾îÂ¼°Ú¾î¿ä.";
+                sTemp += "ë­ ì–´ì©Œê² ì–´ìš”.";
                 break;
             case 2:
-                sTemp += "µ¹¾Æ°¡¸é °í¹éÇÒ·¡¿ä.";
+                sTemp += "ëŒì•„ê°€ë©´ ê³ ë°±í• ë˜ìš”.";
                 break;
             default:
-                sTemp += "°á´ÜÀº ±×·±°ÅÁÒ.";
+                sTemp += "ê²°ë‹¨ì€ ê·¸ëŸ°ê±°ì£ .";
                 break;
         }
         TextMeshProUGUI text = transform.GetChild(1).GetComponent<TextMeshProUGUI>();

@@ -128,19 +128,19 @@ public class StartManager : MonoBehaviour
     {
         skillData sd = gm.playerHaveSkill[selectedMagicNum];
 
-        // ÇØ´ç ½ºÅ³·¹º§¿¡¼­ ÇÃ·¹ÀÌ¾î º¸À¯ÀçÈ­°¡ ½ºÅ³ÀÇ ¿ä±¸ ÀçÈ­ ÀÌ»óÀ» ¸¸Á·ÇÑ´Ù¸é
+        // í•´ë‹¹ ìŠ¤í‚¬ë ˆë²¨ì—ì„œ í”Œë ˆì´ì–´ ë³´ìœ ì¬í™”ê°€ ìŠ¤í‚¬ì˜ ìš”êµ¬ ì¬í™” ì´ìƒì„ ë§Œì¡±í•œë‹¤ë©´
         //if (sd.needExpForLevUp[sd.level] > )
-        // { ÇÃ·¹ÀÌ¾î º¸À¯ ÀçÈ­ °¨¼Ò
+        // { í”Œë ˆì´ì–´ ë³´ìœ  ì¬í™” ê°ì†Œ
 
-        // ½ºÅ³ ·¹º§¾÷ }
+        // ìŠ¤í‚¬ ë ˆë²¨ì—… }
 
         skillUISetPenel.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Lev." + sd.level + " " + sd.name;
 
     }
     public void OnClickEraseMagic()
     {
-        // ÄÚ½ºÆ® or ½ºÅ³ ·¹º§ ¸¸Å­ ´©ÀûµÈ °æÇèÄ¡ ¾ç¸¸Å­ ÇÃ·¹ÀÌ¾î¿¡°Ô ÀçÈ­ ÃæÀü
-        // ¾øÀ»¼öµµ ÀÖ°í
+        // ì½”ìŠ¤íŠ¸ or ìŠ¤í‚¬ ë ˆë²¨ ë§Œí¼ ëˆ„ì ëœ ê²½í—˜ì¹˜ ì–‘ë§Œí¼ í”Œë ˆì´ì–´ì—ê²Œ ì¬í™” ì¶©ì „
+        // ì—†ì„ìˆ˜ë„ ìˆê³ 
 
         magicStatePenel.SetActive(false);
         gm.playerHaveSkill.RemoveAt(selectedMagicNum);
@@ -191,11 +191,11 @@ public class StartManager : MonoBehaviour
         selectedShopItemNum = (int)item.transform.position.z;
         itemPopUpPenel.transform.GetChild(0).GetComponent<Image>().sprite = shopItems[selectedShopItemNum].itemImage;
         itemPopUpPenel.transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>().text = shopItems[selectedShopItemNum].itemName + " +1";
-        itemPopUpPenel.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "±¸¸Å °¡°İ : " + shopItems[selectedShopItemNum].cost;
+        itemPopUpPenel.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "êµ¬ë§¤ ê°€ê²© : " + shopItems[selectedShopItemNum].cost;
     }
     public void OnClickBuyItem()
     {
-        // ÀÎº¥Åä¸®¿¡ shopItems[selectedShopItemNum] ·Î Ãß°¡ÇØ¼­ ¾÷µ¥ÀÌÆ®
+        // ì¸ë²¤í† ë¦¬ì— shopItems[selectedShopItemNum] ë¡œ ì¶”ê°€í•´ì„œ ì—…ë°ì´íŠ¸
         Vector3 ts = shopItemPenel.transform.position;
         ts = new Vector3(ts.x, ts.y, 1.3f);
 
@@ -220,8 +220,8 @@ public class StartManager : MonoBehaviour
 
     public GameObject inventoryItemPrefab;
 
-    private int selectedEquipNum;    // ±³Ã¼ÇÏ±âÀ§ÇØ ¼±ÅÃµÈ Âø¿ëÁß Àåºñ
-    private int selectedInvenItemNum; // ±³Ã¼ÇÒ Àåºñ
+    private int selectedEquipNum;    // êµì²´í•˜ê¸°ìœ„í•´ ì„ íƒëœ ì°©ìš©ì¤‘ ì¥ë¹„
+    private int selectedInvenItemNum; // êµì²´í•  ì¥ë¹„
     private List<GameObject> invenObjectPooling = new List<GameObject>();
 
     public GameObject itemOptionTextPrefab;
@@ -230,7 +230,7 @@ public class StartManager : MonoBehaviour
 
     public GameObject selectedItemOptons;
 
-    public GameObject[] goHome; // È¨À» Á¦¿ÜÇÑ ÄÑÁ®ÀÖ´Â ¸ğµç ÆĞ³ÎÀ» ³Ö¾î È¨À¸·Î ºüÁ®³ª°¡±â À§ÇØ »ç¿ë
+    public GameObject[] goHome; // í™ˆì„ ì œì™¸í•œ ì¼œì ¸ìˆëŠ” ëª¨ë“  íŒ¨ë„ì„ ë„£ì–´ í™ˆìœ¼ë¡œ ë¹ ì ¸ë‚˜ê°€ê¸° ìœ„í•´ ì‚¬ìš©
 
     public void OnClickEquipmentTap(GameObject penel)
     {
@@ -251,7 +251,7 @@ public class StartManager : MonoBehaviour
             equipmentPenel.transform.GetChild(1).GetChild(i).GetChild(2).GetComponent<Text>().text = "Lv." + gm.playerEquipment[i].level;
         }
 
-        // ÀåºñÃ¢ Áß¾Ó ÇÃ·¹ÀÌ¾î °È±â ¸ğ¼Ç ½ÇÇàÇÏ´Â°Å ³Ö±â
+        // ì¥ë¹„ì°½ ì¤‘ì•™ í”Œë ˆì´ì–´ ê±·ê¸° ëª¨ì…˜ ì‹¤í–‰í•˜ëŠ”ê±° ë„£ê¸°
 
 
 
@@ -301,12 +301,12 @@ public class StartManager : MonoBehaviour
     }
     public void OnClickPlayerEquipment(GameObject equip)
     {
-        // ÀåºñÃ¢¿¡¼­ ÇÃ·¹ÀÌ¾î°¡ ÀåºñÇÑ ¾ÆÀÌÅÛÀ» ¼±ÅÃ½Ã ÀÎº¥Åä¸® ¿­±â
+        // ì¥ë¹„ì°½ì—ì„œ í”Œë ˆì´ì–´ê°€ ì¥ë¹„í•œ ì•„ì´í…œì„ ì„ íƒì‹œ ì¸ë²¤í† ë¦¬ ì—´ê¸°
         inventoryPopupPenel.SetActive(true);
         invenRelease();
         initPlayerInventory();
         selectedItemPopupPenel.SetActive(true);
-        // Àü¿¡ ¿­¶÷ÇÑ Àåºñ¸¦ ¶Ç´Ù½Ã ¿­¾îº¼ °æ¿ì »õ·Î ¼¼ÆÃÇÏÁö ¾Ê´Â´Ù
+        // ì „ì— ì—´ëŒí•œ ì¥ë¹„ë¥¼ ë˜ë‹¤ì‹œ ì—´ì–´ë³¼ ê²½ìš° ìƒˆë¡œ ì„¸íŒ…í•˜ì§€ ì•ŠëŠ”ë‹¤
         if (selectedEquipNum != (int)equip.transform.position.z)
         {
             selectedEquipNum = (int)equip.transform.position.z;
@@ -319,7 +319,7 @@ public class StartManager : MonoBehaviour
         }
         else
         {
-            // (¼öÁ¤) ¹«±â ¼±ÅÃ½Ã¿Í ±× ¿Ü Àåºñ ¼±ÅÃ½Ã ÀÎº¥Åä¸®¿¡¼­ º¸¿©ÁÖ´Â ¾ÆÀÌÅÛÀÌ ´Ş¶ó¾ßÇÑ´Ù.
+            // (ìˆ˜ì •) ë¬´ê¸° ì„ íƒì‹œì™€ ê·¸ ì™¸ ì¥ë¹„ ì„ íƒì‹œ ì¸ë²¤í† ë¦¬ì—ì„œ ë³´ì—¬ì£¼ëŠ” ì•„ì´í…œì´ ë‹¬ë¼ì•¼í•œë‹¤.
 
 
 
@@ -347,9 +347,9 @@ public class StartManager : MonoBehaviour
     public void initItemOptions(List<GameObject> pool, GameObject prefab, GameObject content, bool equiped = true)
     {
         GameObject option = null;
-        int check = 0;  // pooling Ã¼Å©¿ë
-        itemOptionRelease();    // ¿É¼Ç ÄÑÁ®ÀÖ´ø°Íµé ºñÈ°¼ºÈ­
-        // ÀåÂøÇÑ ¾ÆÀÌÅÛÀÎÁö, ÀÎº¥ ¾ÆÀÌÅÛÀÎÁö ±¸ºĞ
+        int check = 0;  // pooling ì²´í¬ìš©
+        itemOptionRelease();    // ì˜µì…˜ ì¼œì ¸ìˆë˜ê²ƒë“¤ ë¹„í™œì„±í™”
+        // ì¥ì°©í•œ ì•„ì´í…œì¸ì§€, ì¸ë²¤ ì•„ì´í…œì¸ì§€ êµ¬ë¶„
         ItemData id = null;
         float gab = 0;
         if (equiped == true)
@@ -361,16 +361,16 @@ public class StartManager : MonoBehaviour
             id = gm.inventory[selectedInvenItemNum];
         }
 
-        // ¾ÆÀÌÅÛ ¿É¼Ç Ç¥½Ã ÇÑÁÙ¾¿
+        // ì•„ì´í…œ ì˜µì…˜ í‘œì‹œ í•œì¤„ì”©
         for (int i = 0; i < id.getState.Length; ++i)
         {   
             if (id.getState[i] == 0 && equiped)
             {
-                // ÀåÂøÇÑ ¾ÆÀÌÅÛÀÇ ½ºÅÈÀÌ 0ÀÎ °æ¿ì Ç¥½Ã ÇÏÁö ¾ÊÀ½
+                // ì¥ì°©í•œ ì•„ì´í…œì˜ ìŠ¤íƒ¯ì´ 0ì¸ ê²½ìš° í‘œì‹œ í•˜ì§€ ì•ŠìŒ
                 continue;
             }
             else if(!equiped)
-            {   // ±³È¯À» ¿øÇÏ´Â ¾ÆÀÌÅÛÀÇ ½ºÅÈÀÌ Áõ°¨ ÀüÈÄ°¡ 0ÀÌ¸é Ç¥½ÃÇÏÁö ¾Ê´Â´Ù
+            {   // êµí™˜ì„ ì›í•˜ëŠ” ì•„ì´í…œì˜ ìŠ¤íƒ¯ì´ ì¦ê° ì „í›„ê°€ 0ì´ë©´ í‘œì‹œí•˜ì§€ ì•ŠëŠ”ë‹¤
                 if (gm.playerEquipment[selectedEquipNum].getState[i] == 0 && id.getState[i] == 0)
                 {
                     continue;
@@ -393,7 +393,7 @@ public class StartManager : MonoBehaviour
             }
             check = 0;
             TextMeshProUGUI optionText = option.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-            // ¾ÆÀÌÅÛ ¿É¼Ç Ç¥±â
+            // ì•„ì´í…œ ì˜µì…˜ í‘œê¸°
             if (equiped)
             {
                 optionText.text = initItemStateName(optionText,i).text + id.getState[i].ToString();
@@ -403,11 +403,11 @@ public class StartManager : MonoBehaviour
                 gab = id.getState[i] - gm.playerEquipment[selectedEquipNum].getState[i];
                 optionText.text = initItemStateName(optionText,i).text + id.getState[i].ToString();
                 if (gab > 0)
-                {   // ¼öÄ¡°¡ ÇÃ·¯½º µÇ¸é ³ì»ö Ç¥½Ã
+                {   // ìˆ˜ì¹˜ê°€ í”ŒëŸ¬ìŠ¤ ë˜ë©´ ë…¹ìƒ‰ í‘œì‹œ
                     optionText.text += "<color=#00ff00>" + " ( +" + gab + " )" + "</color>";
                 }
                 else if (gab < 0)
-                {   // ¼öÄ¡°¡ ¸¶ÀÌ³Ê½º µÇ¸é »¡°­»ö Ç¥½Ã
+                {   // ìˆ˜ì¹˜ê°€ ë§ˆì´ë„ˆìŠ¤ ë˜ë©´ ë¹¨ê°•ìƒ‰ í‘œì‹œ
                     optionText.text += "<color=#ff0000>" + " ( " + gab + " )" + "</color>";
                 }
             }
@@ -416,30 +416,30 @@ public class StartManager : MonoBehaviour
         }
     }
     public TextMeshProUGUI initItemStateName(TextMeshProUGUI txt, int num)
-    {   // ¾ÆÀÌÅÛÀÇ ½ºÅÈ ÀÌ¸§À» ¼³Á¤ÇØÁÜ - ¾ÆÀÌÅÛ ¿É¼Ç Ãß°¡¿ëµµ·Î »ç¿ë
+    {   // ì•„ì´í…œì˜ ìŠ¤íƒ¯ ì´ë¦„ì„ ì„¤ì •í•´ì¤Œ - ì•„ì´í…œ ì˜µì…˜ ì¶”ê°€ìš©ë„ë¡œ ì‚¬ìš©
         switch (num)
-        {   // ÀÓ½Ã·Î ¼¼ÆÃ
+        {   // ì„ì‹œë¡œ ì„¸íŒ…
             case 0:
-                txt.text = "°ø°İ·Â : ";
+                txt.text = "ê³µê²©ë ¥ : ";
                 break;
             case 1:
-                txt.text = "¹æ¾î·Â : ";
+                txt.text = "ë°©ì–´ë ¥ : ";
                 break;
             case 2:
-                txt.text = "ÃÖ´ëÃ¼·Â : ";
+                txt.text = "ìµœëŒ€ì²´ë ¥ : ";
                 break;
         }
         return txt;
     }
 
     public void OnClickInventoryItem(GameObject equip)
-    {   // ÀÎº¥Åä¸® ¾ÆÀÌÅÛÀ» ¼±ÅÃÇÏ¿© ÇöÀç Àåºñ¿¡¼­ ¼±ÅÃÇÑ ¾ÆÀÌÅÛÀ¸·Î ±³Ã¼ÇÏ´Â Ã¢ ¶ç¿î´Ù
+    {   // ì¸ë²¤í† ë¦¬ ì•„ì´í…œì„ ì„ íƒí•˜ì—¬ í˜„ì¬ ì¥ë¹„ì—ì„œ ì„ íƒí•œ ì•„ì´í…œìœ¼ë¡œ êµì²´í•˜ëŠ” ì°½ ë„ìš´ë‹¤
         selectedInvenItemNum = (int)equip.transform.position.z;
         selectedItemPopupPenel.transform.GetChild(0).GetComponent<Image>().sprite = gm.inventory[selectedInvenItemNum].itemImage;
         selectedItemPopupPenel.transform.GetChild(1).GetComponent<Text>().text = "Lv." + gm.inventory[selectedInvenItemNum].level;
         selectedItemPopupPenel.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = gm.inventory[selectedInvenItemNum].name;
 
-        // ±³Ã¼ÇÏ´Â Ã¢¿¡ Ç¥½ÃÇÒ ÀÎº¥Åä¸®¿¡¼­ ¼±ÅÃÇÑ ¾ÆÀÌÅÛÀÇ ¿É¼Ç Ç¥½Ã
+        // êµì²´í•˜ëŠ” ì°½ì— í‘œì‹œí•  ì¸ë²¤í† ë¦¬ì—ì„œ ì„ íƒí•œ ì•„ì´í…œì˜ ì˜µì…˜ í‘œì‹œ
         initItemOptions(selectedItemOptonsPooling, itemOptionTextPrefab, selectedItemPopupPenel.transform.GetChild(3).gameObject, false);
     }
     /*

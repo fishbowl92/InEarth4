@@ -8,16 +8,16 @@ public class BulletManager : MonoBehaviour
     public PlayManager pm;
     public class Bullet
     {
-        public int number; // ÃÑ¾Ë ³Ñ¹ö (ÀÌ¹ÌÁö º¯°æ ¹öÇÁ°É¸±°æ¿ì »ç¿ë
-        public int dmg; // µ¥¹ÌÁö
-        public float range; // Å¸°İ¹üÀ§
-        public int count; // ¶Õ´Â ¼ö
-        public float speed; // ÀÌµ¿ ¼Óµµ
-        public float endPoint; // ÃÖÁ¾ µµÂøÁö
-        public int lifeTiem; // »ıÁ¸ÇÑ ±â°£
-        public Transform t; // ¿òÁ÷ÀÏ ÃÑ¾Ë
+        public int number; // ì´ì•Œ ë„˜ë²„ (ì´ë¯¸ì§€ ë³€ê²½ ë²„í”„ê±¸ë¦´ê²½ìš° ì‚¬ìš©
+        public int dmg; // ë°ë¯¸ì§€
+        public float range; // íƒ€ê²©ë²”ìœ„
+        public int count; // ëš«ëŠ” ìˆ˜
+        public float speed; // ì´ë™ ì†ë„
+        public float endPoint; // ìµœì¢… ë„ì°©ì§€
+        public int lifeTiem; // ìƒì¡´í•œ ê¸°ê°„
+        public Transform t; // ì›€ì§ì¼ ì´ì•Œ
         public SpriteRenderer sr;
-        public List<Enemy> hit; // Å¸°İÇÑ ´ë»ó
+        public List<Enemy> hit; // íƒ€ê²©í•œ ëŒ€ìƒ
         public Bullet(Transform t)
         {
             number = -1;
@@ -31,8 +31,8 @@ public class BulletManager : MonoBehaviour
     }
     public class EffectObject
     {
-        public float spawnTime; //»ı¼ºµÈ ½Ã°£
-        public GameObject img; //°ü¸®µÇ´Â ´ë»ó
+        public float spawnTime; //ìƒì„±ëœ ì‹œê°„
+        public GameObject img; //ê´€ë¦¬ë˜ëŠ” ëŒ€ìƒ
         public EffectObject(GameObject _g)
         {
             spawnTime = Time.time;
@@ -67,7 +67,7 @@ public class BulletManager : MonoBehaviour
                     }
                     if (bTemp.lifeTiem / 3 >= pm.player.bulletImg.Length && bTemp.t.position.x >= bTemp.endPoint)
                     {
-                        //Åõ»çÃ¼ ³¡
+                        //íˆ¬ì‚¬ì²´ ë
                         bTemp.t.gameObject.SetActive(false);
                         usedBullets.Add(bTemp);
                         myBullets.RemoveAt(i);
@@ -77,11 +77,11 @@ public class BulletManager : MonoBehaviour
                         for (int j = pm.Enemys.Count - 1; j >= 0; --j)
                         {
                             Enemy e = pm.Enemys[j];
-                            if (bTemp.hit.Contains(e)) continue; // ÀÌ¹Ì¶§¸²
+                            if (bTemp.hit.Contains(e)) continue; // ì´ë¯¸ë•Œë¦¼
                             float point = e.transform.position.x;
                             if (point <= start + bTemp.range && point >= start)
                             {
-                                //¹üÀ§ ¾È, Àû°ø°İ ±¸Çö
+                                //ë²”ìœ„ ì•ˆ, ì ê³µê²© êµ¬í˜„
                                 bTemp.hit.Add(e);
                                 e.Apuda(bTemp.dmg);
                                 hitSound[hsCount++].Play();
@@ -96,14 +96,14 @@ public class BulletManager : MonoBehaviour
 
                                 if (--bTemp.count < 0)
                                 {
-                                    break; // ¶§¸±²¨ ´Ù‹š¸²
+                                    break; // ë•Œë¦´êº¼ ë‹¤ë–„ë¦¼
                                 }
                             }
                         }
                     }
                     else if (bTemp.lifeTiem / 2 >= pm.player.bulletImg.Length)
                     {
-                        //Åõ»çÃ¼ ³¡
+                        //íˆ¬ì‚¬ì²´ ë
                         bTemp.t.gameObject.SetActive(false);
                         usedBullets.Add(bTemp);
                         myBullets.RemoveAt(i);

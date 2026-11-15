@@ -6,16 +6,16 @@ public class ItemData : ScriptableObject
 {
     public string itemName;
     public string itemCode;
-    public int itemKind;    // 0 - ¹«±â, 1 - etc
+    public int itemKind;    // 0 - ë¬´ê¸°, 1 - etc
     public int level;
     public int cost;
-    // Get StateÀÇ ¼ø¼­·Î ½ºÅÈÀÌ Á¤ÇØÁø´Ù (ÀÓ½Ã) (Ãß°¡¿¹Á¤)
-    // 0 - °ø°İ·Â, 1 - ¹æ¾î·Â, 2 - ÃÖ´ëÃ¼·Â
+    // Get Stateì˜ ìˆœì„œë¡œ ìŠ¤íƒ¯ì´ ì •í•´ì§„ë‹¤ (ì„ì‹œ) (ì¶”ê°€ì˜ˆì •)
+    // 0 - ê³µê²©ë ¥, 1 - ë°©ì–´ë ¥, 2 - ìµœëŒ€ì²´ë ¥
     public float[] getState;
     [TextArea(10, 20)]
     public string info;
     public Sprite itemImage;
 
-    public Sprite[] weaponEffect;  // À¯Àú ¹«±â »ç¿ë½Ã ÀÌÆåÆ®
-    public GameObject bombEffect;   // ¸ó½ºÅÍ ÇÇ°İ ÀÌÆåÆ®
+    public Sprite[] weaponEffect;  // ìœ ì € ë¬´ê¸° ì‚¬ìš©ì‹œ ì´í™íŠ¸
+    public GameObject bombEffect;   // ëª¬ìŠ¤í„° í”¼ê²© ì´í™íŠ¸
 }

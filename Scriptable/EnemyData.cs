@@ -10,7 +10,7 @@ public class EnemyData : ScriptableObject
     public Sprite headImg;
     public int hp;
     public float speed;
-    public float distance; //�̰ݰŸ�
+    public float distance; //이격거리
     public Enemy.skillInfo[] mySkills;
     public int tear;
     public int myPattern;

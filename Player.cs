@@ -13,24 +13,24 @@ public class Player : MonoBehaviour
 
     public int atk, def;
     public int atkBuff;
-    public float atkSpeed;//°ø°İ¼Óµµ
-    public int defaultCount; //°üÅëÈ½¼ö
-    public float atkToFar; // Åõ»çÃ¤ ÁøÇà°Å¸®
-    public float bulletAtkRange; //Åõ»çÃ¼ °ø°İ¹üÀ§
-    public float defaultBulletSpeed; //Åõ»çÃ¼ ÀüÁø¼Óµµ
-    public float DefaultEvasionTime; // È¸ÇÇÁö¼Ó½Ã°£
-    public float knockBackPower; // ÀûÀÌ ¹Ğ·Á³ª°¡´Â °Å¸®
-    public float knockBackTime; // ÀûÀÌ °æÁ÷ ½Ã°£
-    public int DefaultEvasionStack; //È¸ÇÇ ½ºÅÃÃÖ´ëÄ¡
-    public float EvasionCoolTime; // È¸ÇÇÁö¼Ó
-    public float critical; //Ä¡¸íÅ¸ È®·ü
-    public float criDmg; // Ä¡¸íÅ¸ ¹èÀ²
+    public float atkSpeed;//ê³µê²©ì†ë„
+    public int defaultCount; //ê´€í†µíšŸìˆ˜
+    public float atkToFar; // íˆ¬ì‚¬ì±„ ì§„í–‰ê±°ë¦¬
+    public float bulletAtkRange; //íˆ¬ì‚¬ì²´ ê³µê²©ë²”ìœ„
+    public float defaultBulletSpeed; //íˆ¬ì‚¬ì²´ ì „ì§„ì†ë„
+    public float DefaultEvasionTime; // íšŒí”¼ì§€ì†ì‹œê°„
+    public float knockBackPower; // ì ì´ ë°€ë ¤ë‚˜ê°€ëŠ” ê±°ë¦¬
+    public float knockBackTime; // ì ì´ ê²½ì§ ì‹œê°„
+    public int DefaultEvasionStack; //íšŒí”¼ ìŠ¤íƒìµœëŒ€ì¹˜
+    public float EvasionCoolTime; // íšŒí”¼ì§€ì†
+    public float critical; //ì¹˜ëª…íƒ€ í™•ë¥ 
+    public float criDmg; // ì¹˜ëª…íƒ€ ë°°ìœ¨
     public int prbBtn;
 
     public bool skillCheck;
     public bool atkDel;
 
-    public float farRange; // ÀÌ°İ°Å¸®
+    public float farRange; // ì´ê²©ê±°ë¦¬
     public float nearEnemy;
     public Enemy target;
 
@@ -54,10 +54,10 @@ public class Player : MonoBehaviour
     {
         switch (kind)
         {
-            case 0: //°ø°İ·Â
+            case 0: //ê³µê²©ë ¥
                 atkBuff += gab;
                 break;
-            case 2: //°ø°İ¼Óµµ
+            case 2: //ê³µê²©ì†ë„
                 atkSpeed += gab;
                 break;
         }
